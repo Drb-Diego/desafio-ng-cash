@@ -8,6 +8,12 @@ class AccountModel {
 
     return accountCreated;
   }
+
+  public async getBalanceByAccountId(id: number) {
+    const balance = await prisma.accounts.findFirst({ where: { id } });
+
+    return balance?.balance;
+  }
 }
 
 export default new AccountModel();
