@@ -15,8 +15,8 @@ model Users {
   username String @unique
   password String
 
-  accountsId Int      @unique
-  account    Accounts @relation(fields: [accountsId], references: [id])
+  accountId Int      @unique
+  account   Accounts @relation(fields: [accountId], references: [id])
 
   @@map("users")
 }
