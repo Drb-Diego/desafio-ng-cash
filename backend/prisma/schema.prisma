@@ -11,19 +11,22 @@ datasource db {
 }
 
 model Users {
-  id       Int       @id @default(autoincrement())
-  username String    @unique
+  id       Int    @id @default(autoincrement())
+  username String @unique
   password String
-  Accounts Accounts?
+
+  accountsId Int      @unique
+  account    Accounts @relation(fields: [accountsId], references: [id])
 
   @@map("users")
 }
 
 model Accounts {
-  id      Int   @id @default(autoincrement())
+  id      Int    @id @default(autoincrement())
   balance Float
-  userId  Int   @unique
-  user    Users @relation(fields: [userId], references: [id])
+  Users   Users?
+
+  transaction Transaction[]
 
   @@map("accounts")
 }
@@ -34,6 +37,9 @@ model Transaction {
   createdAt        DateTime @default(now())
   debitedAccountId Int
   cretedAccountId  Int
+
+  Accounts   Accounts? @relation(fields: [accountsId], references: [id])
+  accountsId Int?
 
   @@map("transaction")
 }
