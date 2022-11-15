@@ -7,3 +7,5 @@ class Exception {
     this.message = message;
   }
 }
+
+export default Exception;
