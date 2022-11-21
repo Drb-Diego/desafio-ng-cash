@@ -3,7 +3,7 @@ import { Router } from "express";
 import validateBodyCreateUser from "../../../middlewares/users/validateBodyCreateUser";
 import validateTokenMiddleware from "../../../middlewares/validateTokenMiddleware";
 
-import usersController from "../controller/users.controller";
+import usersController from "../controller/user.controller";
 
 const routes = Router();
 

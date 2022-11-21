@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import { ITokenDecoded } from "../../../@types/ITokenDecoded";
 
-import userService from "../service/users.service";
+import userService from "../service/user.service";
 import accountService from "../../Account/service/account.service";
 
 class usersController {

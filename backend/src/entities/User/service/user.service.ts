@@ -5,7 +5,7 @@ import { createToken } from "../../../shared/token";
 import bcrypt from "bcrypt";
 
 import accountService from "../../Account/service/account.service";
-import usersModel from "../model/users.model";
+import usersModel from "../model/user.model";
 import Exception from "../../../shared/Exception";
 
 class UserService {
