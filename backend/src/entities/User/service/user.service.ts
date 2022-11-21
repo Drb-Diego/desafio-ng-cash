@@ -10,7 +10,7 @@ import Exception from "../../../shared/Exception";
 
 class UserService {
   public async create({ username, password }: ICreateUserServiceDTO) {
-    const userExists = await usersModel.findByUsername(username);
+    const userExists = await this.findByUserByUsername(username);
 
     if (userExists) throw new Exception(400, "User already exists");
 
@@ -41,6 +41,12 @@ class UserService {
     const tokenCreated = createToken(userFinded);
 
     return tokenCreated;
+  }
+
+  public async findByUserByUsername(username: string) {
+    const userFinded = await usersModel.findByUsername(username);
+
+    return userFinded;
   }
 }
 
