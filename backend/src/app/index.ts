@@ -1,6 +1,6 @@
 import "dotenv/config";
 import express from "express";
-import routes from "../routes";
+import routes from "../shared/routes";
 import cors from "cors";
 import morgan from "morgan";
 import errorMiddleware from "../middlewares/errorMiddleware";
