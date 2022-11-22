@@ -14,6 +14,15 @@ class AccountModel {
 
     return balance?.balance;
   }
+
+  public async depositBalance(accountId: number, value: number) {
+    const updatedAccount = await prisma.accounts.update({
+      where: { id: accountId },
+      data: { balance: value },
+    });
+
+    return updatedAccount;
+  }
 }
 
 export default new AccountModel();

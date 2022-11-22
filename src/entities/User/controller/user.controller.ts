@@ -43,8 +43,14 @@ class usersController {
 
       const tokenJson: ITokenDecoded = JSON.parse(token as string);
 
-      const balance = await accountService.getBalanceByAccountId(tokenJson);
-      return response.status(200).json(balance);
+      const balance = await accountService.getBalanceByAccountId(
+        tokenJson.accountId
+      );
+
+      return response.status(200).json({
+        username: tokenJson.username,
+        balance,
+      });
     } catch (error) {
       next(error);
     }
